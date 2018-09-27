@@ -2,7 +2,11 @@ package com.ryan.security.authentication.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
+/**
+ * Created by ryan.shen on 9/27/2018
+ */
 @Configuration
 @ConfigurationProperties(prefix = "common.datasource")
 public class DruidDBConfig {
@@ -14,8 +18,6 @@ public class DruidDBConfig {
     private String password;
 
     private String driverClassName;
-
-    private PoolConfig druid;
 
     public String getUrl() {
         return url;
@@ -49,75 +51,80 @@ public class DruidDBConfig {
         this.driverClassName = driverClassName;
     }
 
-    public PoolConfig getDruid() {
-        return druid;
-    }
 
-    public void setDruid(PoolConfig druid) {
-        this.druid = druid;
-    }
-}
+    private Integer initialSize;
 
-class PoolConfig {
+    private Long minIdle;
 
-    private String initialSize;
-    private String minIdle;
-    private String maxActive;
-    private String maxWait;
-    private String timeBetweenEvictionRunsMillis;
-    private String minEvictableIdleTimeMillis;
+    private Long maxActive;
+
+    private Long maxWait;
+
+    private Long timeBetweenEvictionRunsMillis;
+
+    private Long minEvictableIdleTimeMillis;
+
     private String validationQuery;
-    private String testWhileIdle;
-    private String testOnBorrow;
-    private String poolPreparedStatements;
+
+    private Boolean testWhileIdle;
+
+    private Boolean testOnBorrow;
+
+    private Boolean testOnReturn;
+
+    private Boolean poolPreparedStatements;
+
+    private Long maxPoolPreparedStatementPerConnectionSize;
+
     private String filters;
+
     private String connectionProperties;
 
-    public String getInitialSize() {
+    public Integer getInitialSize() {
         return initialSize;
     }
 
-    public void setInitialSize(String initialSize) {
+    public void setInitialSize(Integer initialSize) {
         this.initialSize = initialSize;
     }
 
-    public String getMinIdle() {
+    public Long getMinIdle() {
         return minIdle;
     }
 
-    public void setMinIdle(String minIdle) {
+    public void setMinIdle(Long minIdle) {
         this.minIdle = minIdle;
     }
 
-    public String getMaxActive() {
+    public Long getMaxActive() {
         return maxActive;
     }
 
-    public void setMaxActive(String maxActive) {
+    public void setMaxActive(Long maxActive) {
         this.maxActive = maxActive;
     }
 
-    public String getMaxWait() {
+    public Long getMaxWait() {
         return maxWait;
     }
 
-    public void setMaxWait(String maxWait) {
+    public void setMaxWait(Long maxWait) {
         this.maxWait = maxWait;
     }
 
-    public String getTimeBetweenEvictionRunsMillis() {
+    public Long getTimeBetweenEvictionRunsMillis() {
         return timeBetweenEvictionRunsMillis;
     }
 
-    public void setTimeBetweenEvictionRunsMillis(String timeBetweenEvictionRunsMillis) {
+    public void setTimeBetweenEvictionRunsMillis(Long timeBetweenEvictionRunsMillis) {
         this.timeBetweenEvictionRunsMillis = timeBetweenEvictionRunsMillis;
     }
 
-    public String getMinEvictableIdleTimeMillis() {
+    public Long getMinEvictableIdleTimeMillis() {
         return minEvictableIdleTimeMillis;
     }
 
-    public void setMinEvictableIdleTimeMillis(String minEvictableIdleTimeMillis) {
+    public void setMinEvictableIdleTimeMillis(Long minEvictableIdleTimeMillis) {
         this.minEvictableIdleTimeMillis = minEvictableIdleTimeMillis;
     }
 
@@ -129,28 +136,44 @@ class PoolConfig {
         this.validationQuery = validationQuery;
     }
 
-    public String getTestWhileIdle() {
+    public Boolean getTestWhileIdle() {
         return testWhileIdle;
     }
 
-    public void setTestWhileIdle(String testWhileIdle) {
+    public void setTestWhileIdle(Boolean testWhileIdle) {
         this.testWhileIdle = testWhileIdle;
     }
 
-    public String getTestOnBorrow() {
+    public Boolean getTestOnBorrow() {
         return testOnBorrow;
     }
 
-    public void setTestOnBorrow(String testOnBorrow) {
+    public void setTestOnBorrow(Boolean testOnBorrow) {
         this.testOnBorrow = testOnBorrow;
     }
 
-    public String getPoolPreparedStatements() {
+    public Boolean getTestOnReturn() {
+        return testOnReturn;
+    }
+
+    public void setTestOnReturn(Boolean testOnReturn) {
+        this.testOnReturn = testOnReturn;
+    }
+
+    public Boolean getPoolPreparedStatements() {
         return poolPreparedStatements;
     }
 
-    public void setPoolPreparedStatements(String poolPreparedStatements) {
+    public void setPoolPreparedStatements(Boolean poolPreparedStatements) {
         this.poolPreparedStatements = poolPreparedStatements;
+    }
+
+    public Long getMaxPoolPreparedStatementPerConnectionSize() {
+        return maxPoolPreparedStatementPerConnectionSize;
+    }
+
+    public void setMaxPoolPreparedStatementPerConnectionSize(Long maxPoolPreparedStatementPerConnectionSize) {
+        this.maxPoolPreparedStatementPerConnectionSize = maxPoolPreparedStatementPerConnectionSize;
     }
 
     public String getFilters() {

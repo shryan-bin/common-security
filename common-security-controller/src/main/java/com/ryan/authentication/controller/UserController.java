@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Created by ryan.shen on 9/27/2018
+ */
 @RestController
 @RequestMapping("apis/user")
 public class UserController {

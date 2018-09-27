@@ -11,16 +11,25 @@ common:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-    druid:
-      initialSize:
-      minIdle:
-      maxActive:
-      maxWait:
-      timeBetweenEvictionRunsMillis:
-      minEvictableIdleTimeMillis:
-      validationQuery: select 1
-      testWhileIdle:
-      testOnBorrow:
-      poolPreparedStatements:
-      filters: stat,wall,log4j
-      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    initialSize: 10
+    minIdle: 10
+    maxActive: 30
+    maxWait: 1000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE

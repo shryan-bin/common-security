@@ -21,7 +21,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <mysql.version>6.0.6</mysql.version>
-        <druid.version>1.1.10</druid.version>
     </properties>
 
     <dependencies>
@@ -35,11 +34,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>${druid.version}</version>
-        </dependency>
+
     </dependencies>
 
 

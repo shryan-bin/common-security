@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author ryan.shen
+ * Created by ryan.shen on 9/27/2018
  */
 @MappedSuperclass
 public class BaseEntity implements Serializable {

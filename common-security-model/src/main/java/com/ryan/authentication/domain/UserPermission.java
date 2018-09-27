@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * @author ryan.shen
+ * Created by ryan.shen on 9/27/2018
  */
 @Entity
 @Table(name = "t_pub_user_permission")

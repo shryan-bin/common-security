@@ -3,7 +3,7 @@ package com.ryan.authentication.domain;
 import javax.persistence.*;
 
 /**
- * @author ryan.shen
+ * Created by ryan.shen on 9/27/2018
  */
 @Entity
 @Table(name = "t_pub_role_permission")
