@@ -1,4 +1,4 @@
-package com.ryan.security.authentication.config;
+package com.ryan.authentication.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -32,6 +33,7 @@ import java.util.Map;
 public class DataSourceJPAConfig {
 
     @Autowired
+    @Qualifier("druidDatasource")
     private DataSource dataSource;
 
     @Autowired
@@ -41,19 +43,21 @@ public class DataSourceJPAConfig {
         return jpaProperties.getProperties();
     }
 
+
+    @Bean("entityManagerFactoryBean")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(EntityManagerFactoryBuilder builder){
         return builder.dataSource(dataSource)
                 .properties(getVendorProperties())
-                .packages("com.ryan.authentication")
+                .packages("com.ryan")
                 .persistenceUnit("persistenceUnit").build();
     }
 
-    @Bean
+    @Bean("entityManager")
     public EntityManager entityManager(EntityManagerFactoryBuilder builder){
         return entityManagerFactoryBean(builder).getObject().createEntityManager();
     }
 
-    @Bean
+    @Bean("transactionManager")
     public PlatformTransactionManager transactionManager(EntityManagerFactoryBuilder builder){
         return new JpaTransactionManager(entityManagerFactoryBean(builder).getObject());
     }

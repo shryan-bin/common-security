@@ -28,6 +28,11 @@
             <artifactId>common-security-model</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>authentication-authorization</groupId>
+            <artifactId>common-security-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 

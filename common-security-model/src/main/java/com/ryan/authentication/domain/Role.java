@@ -17,7 +17,7 @@ public class Role extends BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "roleId")
+    @Column(name = "role_Id")
     private Long roleId;
 
     @Column(name = "role_code", unique = true, nullable = false)
